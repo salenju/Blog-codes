@@ -31,12 +31,12 @@ const UserInfoForm = Form.create()(observer(props => {
       </FormItem>
       <FormItem>
         {
-          getFieldDecorator('city', {
+          getFieldDecorator('state', {
             rules: [{ required: true, message: 'Please input your city!' }],
           })(
             // 第三方组件
             <CitySelect
-              onSelect={value => props.form.setFieldsValue({city: value})}
+              onSelect={value => props.form.setFieldsValue({state: value})}
             />
           )
         }
