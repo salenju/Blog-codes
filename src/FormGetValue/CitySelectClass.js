@@ -36,6 +36,4 @@ class CitySelectClass extends Component {
   }
 }
 
-
-
 export default CitySelectClass

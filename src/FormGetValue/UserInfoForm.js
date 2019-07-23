@@ -19,36 +19,34 @@ const UserInfoForm = Form.create()(observer(props => {
   }
   return (
     <FormContainer>
-    <Form onSubmit={handleSubmit}>
-      <FormItem>
-        {getFieldDecorator('username', {
-          rules: [{ required: true, message: 'Please input your username!' }],
-        })(
-          <Input
-            placeholder="Username"
-          />
-        )}
-      </FormItem>
-      <FormItem>
-        {
-          getFieldDecorator('state', {
-            rules: [{ required: true, message: 'Please input your city!' }],
+      <Form onSubmit={handleSubmit}>
+        <FormItem>
+          {getFieldDecorator('username', {
+            rules: [{ required: true, message: 'Please input your username!' }],
           })(
-            // 第三方组件
-            <CitySelect
-              onSelect={value => props.form.setFieldsValue({state: value})}
+            <Input
+              placeholder="Username"
             />
-          )
-        }
-      </FormItem>
-      <FormItem>
-        <Button type='primary' htmlType='submit'>提交</Button>
-      </FormItem>
-    </Form>
+          )}
+        </FormItem>
+        <FormItem>
+          {
+            getFieldDecorator('city', {
+              rules: [{ required: true, message: 'Please input your city!' }],
+            })(
+              // 自定义组件
+              <CitySelect onSelect={value => props.form.setFieldsValue({ state: value })} />
+            )
+          }
+        </FormItem>
+        <FormItem>
+          <Button type='primary' htmlType='submit'>提交</Button>
+        </FormItem>
+      </Form>
     </FormContainer>
   )
-})
-)
+}
+))
 
 const FormContainer = styled('div')`
   width:300px;

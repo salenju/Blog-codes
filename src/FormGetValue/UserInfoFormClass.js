@@ -40,7 +40,7 @@ class UserInfoFormClass extends Component {
               getFieldDecorator('state', {
                 rules: [{ required: true, message: 'Please input your city!' }],
               })(
-                // 第三方组件
+                // 自定义组件
                 <StateSelectClass />
               )
             }
@@ -50,7 +50,7 @@ class UserInfoFormClass extends Component {
               getFieldDecorator('city', {
                 rules: [{ required: true, message: 'Please input your city!' }],
               })(
-                // 第三方组件
+                // 自定义组件
                 <CitySelectClass
                   callback={value => setFieldsValue({ city: value })}
                 />
