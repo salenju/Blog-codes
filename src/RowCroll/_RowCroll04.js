@@ -14,7 +14,7 @@ const rowDown = count => {
 
   let arr = [
     `0%{-webkit-transform: translateY(-${count *
-      32}px);transform: translateY(-${count * 32}px);}`
+    32}px);transform: translateY(-${count * 32}px);}`
   ]
 
   for (let i = 1; i <= count; i++) {
@@ -31,7 +31,7 @@ const rowDown = count => {
   return keyframes`${str}`
 }
 
-class _RowCroll03 extends Component {
+class _RowCroll04 extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -42,10 +42,10 @@ class _RowCroll03 extends Component {
   }
 
   componentDidMount() {
-    if (this.props.children.length > 5) {
+    if (this.props.children.length > this.props.startCrollCount) {
       this.setState({
         rollClass: 'row-down',
-        count: this.props.children.length - 5,
+        count: this.props.children.length - this.props.startCrollCount,
         duration: this.props.children.length * this.props.time
       })
     }
@@ -62,14 +62,14 @@ class _RowCroll03 extends Component {
           >
             <div
               className="scroll"
-              style={{ height: this.props.height || 160, overflow: 'hidden' }}
+              style={{ height: (this.props.startCrollCount* 32) || 160, overflow: 'hidden' }}
             >
               <div className={this.state.rollClass}>{this.props.children}</div>
             </div>
           </RowCrollContainer>
         ) : (
-          <Empty />
-        )}
+            <Empty />
+          )}
       </div>
     )
   }
@@ -84,10 +84,10 @@ const RowCrollContainer = styled('div')`
   }
 `
 
-_RowCroll03.propTypes = {
-  height: PropTypes.number,
+_RowCroll04.propTypes = {
+  startCrollCount: PropTypes.number,
   time: PropTypes.number.isRequired,
   children: PropTypes.array
 }
 
-export default _RowCroll03
+export default _RowCroll04

@@ -11,6 +11,7 @@ const {
   RowCrollDemo01,
   RowCrollDemo02,
   RowCrollDemo03,
+  RowCrollDemo04,
 } = Codes
 
 storiesOf('Codes', module)
@@ -22,4 +23,5 @@ storiesOf('RowCroll', module)
   .add('RowCroll-Hook操作DOM', () => <RowCrollDemo01 height={200} speed={25} />)
   .add('RowCroll-class', () => <RowCrollDemo02 height={200} speed={25} />)
   .add('RowCroll-间歇滚动', () => <RowCrollDemo03 />)
+  .add('RowCroll-间歇滚动 + 消息提示', () => <RowCrollDemo04 />)
 

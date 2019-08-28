@@ -1,11 +1,12 @@
 import React from 'react';
-import _RowCroll03 from './_RowCroll03'
+import _RowCroll04 from './_RowCroll04'
+import audioData from './123.mp3'
 
-const RowCrollDemo03 = (props) => {
+const RowCrollDemo04 = (props) => {
 
   return (
     <div>
-      <_RowCroll03 time={2} >
+      <_RowCroll04 time={2} startCrollCount={8}>
         <p>第1条数据</p>
         <p>第2条数据</p>
         <p>第3条数据</p>
@@ -25,9 +26,12 @@ const RowCrollDemo03 = (props) => {
         <p>第17条数据</p>
         <p>第18条数据</p>
         <p>第19条数据</p>
-      </_RowCroll03>
+      </_RowCroll04>
+      <audio autoPlay='true' >
+        <source src={audioData} />
+      </audio>
     </div>
   )
 }
 
-export default RowCrollDemo03
+export default RowCrollDemo04
